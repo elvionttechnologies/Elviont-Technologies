@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Support page for BetIntel.">
+  <title>BetIntel Support</title>
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #5d6472;
+      --line: #e6e9f0;
+      --panel: #ffffff;
+      --soft: #f7f8fc;
+      --blue: #2166f3;
+      --violet: #7638ff;
+      --cyan: #20b8ff;
+      --green: #16a34a;
+      --shadow: 0 24px 70px rgba(36, 51, 92, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(118, 56, 255, 0.14), transparent 28rem),
+        radial-gradient(circle at 88% 0%, rgba(32, 184, 255, 0.16), transparent 24rem),
+        var(--soft);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 44px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 42px;
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .brand span {
+      color: var(--violet);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 56px 0 36px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 14px;
+      border: 1px solid rgba(118, 56, 255, 0.18);
+      border-radius: 999px;
+      color: var(--violet);
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .lede {
+      max-width: 720px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2.8vw, 22px);
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(230, 233, 240, 0.9);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: clamp(24px, 4vw, 40px);
+      backdrop-filter: blur(18px);
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, rgba(33, 102, 243, 0.09), rgba(118, 56, 255, 0.08)), #ffffff;
+      border-color: rgba(33, 102, 243, 0.2);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(23px, 3vw, 31px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 7px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .help-item {
+      min-height: 168px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(247, 248, 252, 0.75);
+    }
+
+    .help-item p {
+      font-size: 15px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    strong {
+      color: var(--ink);
+    }
+
+    .footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 28px 4px 0;
+      color: #7a8291;
+      font-size: 14px;
+    }
+
+    @media (max-width: 720px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 22px, 960px);
+        padding-top: 20px;
+      }
+
+      .nav {
+        margin-bottom: 24px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .hero {
+        padding: 36px 0 26px;
+      }
+
+      .card {
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="nav" aria-label="Page header">
+      <div class="brand">Bet<span>Intel</span></div>
+    </nav>
+
+    <header class="hero">
+      <div class="eyebrow">Support</div>
+      <h1>How can we help?</h1>
+      <p class="lede">Get help with subscriptions, match data, AI answers, bet records, and app issues.</p>
+    </header>
+
+    <main class="content">
+      <section class="card contact-card" aria-labelledby="contact">
+        <h2 id="contact">Contact Support</h2>
+        <p>Contact the developer through Apple on the BetIntel App Store listing. Include a short description of the issue, your device model, iOS version, app version, and screenshots when helpful.</p>
+      </section>
+
+      <section class="card" aria-labelledby="quick-help">
+        <h2 id="quick-help">Quick Help</h2>
+        <div class="grid">
+          <article class="help-item">
+            <h3>Subscription Access</h3>
+            <p>If access does not unlock after purchase, reopen BetIntel and use Restore Purchases. You can manage or cancel subscriptions in Apple ID Settings.</p>
+          </article>
+
+          <article class="help-item">
+            <h3>Match Data</h3>
+            <p>Fixtures, scores, and live match status come from public sports data sources. Live updates can occasionally be delayed by the provider.</p>
+          </article>
+
+          <article class="help-item">
+            <h3>AI Answers</h3>
+            <p>BetIntel AI gives short match-focused answers using available match context. Responses are informational and are not betting advice.</p>
+          </article>
+
+          <article class="help-item">
+            <h3>Bet Records</h3>
+            <p>Manual records are stored on your device. If you delete the app or clear app data, local records may be removed.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="before-contact">
+        <h2 id="before-contact">Before You Contact Us</h2>
+        <ul>
+          <li>Check that you are using the latest version of BetIntel.</li>
+          <li>Restart the app if match data looks stale.</li>
+          <li>For subscription issues, confirm the purchase appears under Apple ID Settings.</li>
+          <li>For a missing fixture or flag, include the competition name and teams.</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="privacy">
+        <h2 id="privacy">Privacy And Legal</h2>
+        <p>The BetIntel Privacy Policy explains local storage, match data, AI processing, and subscriptions.</p>
+        <p>BetIntel is an informational analytics tool. The app does not accept bets, deposits, withdrawals, or wagers.</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>BetIntel</span>
+      <span>Support</span>
+    </footer>
+  </div>
+</body>
+</html>
