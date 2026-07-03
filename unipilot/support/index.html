@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UniPilot Support</title>
+  <meta name="description" content="Technical support for UniPilot, a student study planner for iPhone and iPad.">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #101828;
+      --muted: #667085;
+      --line: #e4e7ec;
+      --surface: #ffffff;
+      --wash: #f7fbfb;
+      --accent: #00a7a5;
+      --brand: #c81245;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(0, 167, 165, 0.14), transparent 34rem),
+        radial-gradient(circle at top right, rgba(200, 18, 69, 0.10), transparent 30rem),
+        var(--wash);
+      line-height: 1.6;
+    }
+
+    main {
+      width: min(880px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 56px 0;
+    }
+
+    header,
+    section {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 24px 80px rgba(16, 24, 40, 0.08);
+    }
+
+    header {
+      padding: 32px;
+      border-radius: 28px;
+    }
+
+    section {
+      margin-top: 18px;
+      padding: 28px 32px;
+      border-radius: 24px;
+      box-shadow: none;
+    }
+
+    .brand-logo {
+      display: block;
+      width: min(260px, 68vw);
+      height: auto;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 3.25rem;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.18rem;
+      letter-spacing: 0;
+    }
+
+    p,
+    ul {
+      margin: 0 0 12px;
+    }
+
+    p:last-child,
+    ul:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .intro {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-weight: 600;
+      max-width: 42rem;
+    }
+
+    .support-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 8px;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--accent);
+      box-shadow: 0 12px 32px rgba(0, 167, 165, 0.22);
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .link-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border: 1px solid rgba(0, 167, 165, 0.22);
+      border-radius: 999px;
+      background: rgba(0, 167, 165, 0.08);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin: 14px 0 4px;
+    }
+
+    .feature-chip {
+      min-height: 68px;
+      padding: 12px;
+      border-radius: 18px;
+      color: var(--ink);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-align: left;
+      background: rgba(200, 18, 69, 0.08);
+      border: 1px solid rgba(200, 18, 69, 0.18);
+    }
+
+    .feature-chip span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .feature-chip.timer {
+      background: rgba(0, 167, 165, 0.08);
+      border-color: rgba(0, 167, 165, 0.22);
+    }
+
+    .feature-chip.schedule {
+      background: rgba(110, 91, 199, 0.09);
+      border-color: rgba(110, 91, 199, 0.22);
+    }
+
+    .feature-chip.courses {
+      background: rgba(46, 125, 50, 0.08);
+      border-color: rgba(46, 125, 50, 0.20);
+    }
+
+    .feature-chip.deadline {
+      background: rgba(184, 135, 26, 0.09);
+      border-color: rgba(184, 135, 26, 0.22);
+    }
+
+    footer {
+      margin-top: 24px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 560px) {
+      main {
+        padding: 24px 0;
+      }
+
+      header,
+      section {
+        padding: 22px;
+        border-radius: 22px;
+      }
+
+      .brand-logo {
+        width: min(220px, 72vw);
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        font-size: 2.35rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <img class="brand-logo" src="https://raw.githubusercontent.com/YuxiangB/UniPilot/main/UniPilotWordmark.png" alt="UniPilot">
+      <h1>Support</h1>
+      <p class="intro">Help for UniPilot, a calm study planner for Today, Timer, Schedule, Courses, and Deadline workflows.</p>
+    </header>
+
+    <section>
+      <h2>Need Help?</h2>
+      <p>If you need technical support, have found a bug, or want to report an issue with timetable import, course recognition, notifications, Live Activities, subscriptions, or study timer sessions, please contact the developer.</p>
+      <a class="support-link" href="https://github.com/yuxiangbai">Contact Developer</a>
+    </section>
+
+    <section>
+      <h2>UniPilot Plus Subscription</h2>
+      <p>UniPilot Plus unlocks full access to the app with a 3-day free introductory offer, then &euro;1.99/month where available. The App Store purchase sheet shows the final local price and offer eligibility before you confirm.</p>
+      <div class="feature-grid" aria-label="UniPilot Plus includes">
+        <div class="feature-chip">Today<span>Classes, tasks, and study time at a glance.</span></div>
+        <div class="feature-chip timer">Timer<span>Track focused sessions for each course.</span></div>
+        <div class="feature-chip schedule">Schedule<span>Plan lectures, tutorials, and study blocks.</span></div>
+        <div class="feature-chip courses">Courses<span>Manage course details, ECTS, and GPA.</span></div>
+        <div class="feature-chip deadline">Deadline<span>Keep exams and assignments visible.</span></div>
+      </div>
+      <p>Subscriptions are processed by Apple and renew automatically unless canceled in App Store settings. To recover an existing subscription, open UniPilot and tap Restore Subscription on the paywall.</p>
+    </section>
+
+    <section>
+      <h2>iCloud Backup and Restore</h2>
+      <p>When you sign in with Apple and iCloud is available, UniPilot backs up your study plan to the app's private CloudKit database in your iCloud account. After reinstalling UniPilot, sign in with the same Apple account and iCloud account to restore the backed-up study plan.</p>
+      <p>If your data does not appear, check that iCloud is enabled on the device, that you are using the same Apple account, and that the device has network access.</p>
+    </section>
+
+    <section>
+      <h2>Common Checks</h2>
+      <ul>
+        <li>For notifications, make sure UniPilot is allowed to send notifications in iOS Settings.</li>
+        <li>For timetable imports, use the calendar link copied from the University of Amsterdam Rooster website.</li>
+        <li>For course imports, use a direct Studiegids course page link.</li>
+        <li>For AI course recognition, supported devices may use Apple Intelligence first. Other devices may use OpenAI when a course page needs to be parsed.</li>
+        <li>For Live Activities and Dynamic Island, make sure Live Activities are enabled in iOS Settings.</li>
+        <li>For subscription access, check that you are signed in with the Apple ID that purchased UniPilot Plus, then use Restore Subscription.</li>
+        <li>For iCloud restore, make sure iCloud is available and sign in with the same Apple account used before deleting the app.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Privacy, Legal, and EULA</h2>
+      <p>UniPilot keeps study planning data on your device and can back it up to the app's private CloudKit database in your iCloud account. UniPilot does not use advertising tracking. You can delete your UniPilot account, local study data, and UniPilot's private iCloud backup from Profile Settings in the app.</p>
+      <div class="link-row">
+        <a class="link-pill" href="../privacy/">Privacy Policy</a>
+        <a class="link-pill" href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a>
+        <a class="link-pill" href="https://www.apple.com/legal/internet-services/itunes/">Apple Media Services Terms</a>
+      </div>
+    </section>
+
+    <footer>
+      UniPilot Support | <a href="../privacy/">Privacy Policy</a>
+    </footer>
+  </main>
+</body>
+</html>
