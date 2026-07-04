@@ -202,6 +202,11 @@
       }
 
       .word:last-child .title-char {
+        background: linear-gradient(90deg, var(--ink), #415052 36%, var(--cyan) 62%, var(--violet));
+        background-size: 180% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
         filter:
           drop-shadow(0 0 calc(var(--char-glow) * 15px) rgba(0, 167, 181, calc(var(--char-glow) * 0.34)))
           drop-shadow(0 14px 28px rgba(108, 99, 255, calc(var(--char-glow) * 0.12)));
