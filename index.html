@@ -333,13 +333,19 @@
         background: #fff;
         box-shadow: 0 20px 52px rgba(35, 44, 48, 0.14);
         backdrop-filter: none;
+        color: inherit;
         opacity: 0;
+        text-decoration: none;
         transform: translateY(4.4rem);
         transition:
           opacity 0.75s cubic-bezier(0.2, 1, 0.2, 1),
           transform 0.85s cubic-bezier(0.2, 1, 0.2, 1),
           border-color 0.3s ease,
           box-shadow 0.3s ease;
+      }
+
+      .app[href] {
+        cursor: pointer;
       }
 
       .app:nth-child(2) {
@@ -393,7 +399,8 @@
       }
 
       .app:hover,
-      .app:focus-within {
+      .app:focus-within,
+      .app:focus-visible {
         border-color: color-mix(in srgb, var(--accent), transparent 44%);
         box-shadow:
           0 26px 70px rgba(35, 44, 48, 0.18),
@@ -402,8 +409,14 @@
         transition-delay: 0s;
       }
 
+      .app:focus-visible {
+        outline: 3px solid color-mix(in srgb, var(--accent), transparent 50%);
+        outline-offset: 5px;
+      }
+
       .app:hover::before,
-      .app:focus-within::before {
+      .app:focus-within::before,
+      .app:focus-visible::before {
         transform: scaleX(1);
       }
 
@@ -904,7 +917,13 @@
               match reads, and manual bet tracking.
             </p>
           </article>
-          <article class="app">
+          <a
+            class="app"
+            href="https://apps.apple.com/app/unipilot/id6771369300"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open UniPilot on the App Store"
+          >
             <div class="app-head">
               <img
                 class="app-icon"
@@ -918,8 +937,14 @@
               A weekly study planner that turns timetable events, course details,
               deadlines, exams, and study sessions into a focused mobile plan.
             </p>
-          </article>
-          <article class="app">
+          </a>
+          <a
+            class="app"
+            href="https://apps.apple.com/app/alealens/id6777113845"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open AleaLens on the App Store"
+          >
             <div class="app-head">
               <img
                 class="app-icon"
@@ -933,7 +958,7 @@
               A stock-research dashboard for tracking public Serenity-related signals,
               live quote overlays, and company context in one place.
             </p>
-          </article>
+          </a>
         </div>
       </section>
     </main>
