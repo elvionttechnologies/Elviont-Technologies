@@ -426,16 +426,22 @@
 
       .app-number {
         position: relative;
-        display: inline-grid;
-        min-width: 2.2rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.2rem;
+        min-width: 0;
         height: 2.2rem;
-        place-items: center;
+        box-sizing: border-box;
         border: 1px solid color-mix(in srgb, var(--accent), transparent 44%);
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.62);
         color: var(--accent);
         font-size: 0.78rem;
         font-weight: 900;
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+        text-align: center;
       }
 
       .app h2 {
@@ -643,8 +649,9 @@
           right: 0.7rem;
           grid-row: 1;
           grid-column: auto;
-          min-width: 1.52rem;
-          height: 1.52rem;
+          width: 1.56rem;
+          min-width: 0;
+          height: 1.56rem;
           font-size: 0.58rem;
         }
 
@@ -727,8 +734,9 @@
         .app-number {
           top: 0.52rem;
           right: 0.58rem;
-          min-width: 1.36rem;
-          height: 1.36rem;
+          width: 1.42rem;
+          min-width: 0;
+          height: 1.42rem;
           font-size: 0.54rem;
         }
 
@@ -796,8 +804,9 @@
         .app-number {
           top: 0.48rem;
           right: 0.54rem;
-          min-width: 1.32rem;
-          height: 1.32rem;
+          width: 1.38rem;
+          min-width: 0;
+          height: 1.38rem;
           font-size: 0.52rem;
         }
 
