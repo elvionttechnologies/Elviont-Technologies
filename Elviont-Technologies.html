@@ -153,23 +153,12 @@
       .brand-title {
         position: relative;
         cursor: default;
-        transition: filter 0.28s ease;
-      }
-
-      .brand-title:hover,
-      .brand-title.is-title-hover {
-        filter: saturate(1.16);
       }
 
       .word {
         display: block;
         line-height: 1.04;
         overflow: visible;
-        transition:
-          filter 0.28s ease,
-          text-shadow 0.28s ease,
-          -webkit-text-stroke-color 0.28s ease;
-        will-change: filter, text-shadow;
       }
 
       .word:first-child {
@@ -191,20 +180,36 @@
         animation: title-flow 8s ease-in-out infinite;
       }
 
-      .brand-title:hover .word:first-child,
-      .brand-title.is-title-hover .word:first-child {
-        -webkit-text-stroke-color: rgba(0, 167, 181, 0.96);
+      .title-char {
+        --char-glow: 0;
+        --char-stroke-color: rgba(16, 23, 25, 0.92);
+        display: inline-block;
+        transform: translateY(calc(var(--char-glow) * -0.035em)) scale(calc(1 + var(--char-glow) * 0.018));
+        transition:
+          filter 0.2s ease,
+          text-shadow 0.2s ease,
+          transform 0.2s ease,
+          -webkit-text-stroke-color 0.2s ease;
+        will-change: filter, text-shadow, transform;
+      }
+
+      .word:first-child .title-char {
+        -webkit-text-stroke-color: var(--char-stroke-color);
         text-shadow:
-          0 0 18px rgba(0, 167, 181, 0.34),
-          0 0 42px rgba(108, 99, 255, 0.16),
+          0 0 calc(var(--char-glow) * 18px) rgba(0, 167, 181, calc(var(--char-glow) * 0.38)),
+          0 0 calc(var(--char-glow) * 44px) rgba(108, 99, 255, calc(var(--char-glow) * 0.18)),
           0 20px 58px rgba(16, 23, 25, 0.12);
       }
 
-      .brand-title:hover .word:last-child,
-      .brand-title.is-title-hover .word:last-child {
+      .word:last-child .title-char {
         filter:
-          drop-shadow(0 0 16px rgba(0, 167, 181, 0.32))
-          drop-shadow(0 16px 30px rgba(108, 99, 255, 0.13));
+          drop-shadow(0 0 calc(var(--char-glow) * 15px) rgba(0, 167, 181, calc(var(--char-glow) * 0.34)))
+          drop-shadow(0 14px 28px rgba(108, 99, 255, calc(var(--char-glow) * 0.12)));
+        text-shadow:
+          0 0 calc(var(--char-glow) * 18px) rgba(0, 167, 181, calc(var(--char-glow) * 0.3));
+      }
+
+      .brand-title.is-title-hover .word:last-child {
         animation: title-flow 2.6s ease-in-out infinite;
       }
 
@@ -777,7 +782,7 @@
       <section class="stage" aria-label="Elviont Technologies">
         <div class="brand">
           <p class="eyebrow">Software Studio</p>
-          <h1 class="brand-title" data-brand-title>
+          <h1 class="brand-title" data-brand-title aria-label="Elviont Technologies">
             <span class="word">Elviont</span>
             <span class="word">Technologies</span>
           </h1>
@@ -955,11 +960,53 @@
       const brandTitle = document.querySelector("[data-brand-title]");
 
       if (brandTitle) {
-        brandTitle.addEventListener("pointerenter", () => {
-          brandTitle.classList.add("is-title-hover");
+        const titleChars = [];
+        const strokeBase = [16, 23, 25];
+        const strokeGlow = [0, 167, 181];
+
+        brandTitle.querySelectorAll(".word").forEach((word) => {
+          const letters = Array.from(word.textContent || "");
+          word.textContent = "";
+          word.setAttribute("aria-hidden", "true");
+
+          letters.forEach((letter) => {
+            const span = document.createElement("span");
+            span.className = "title-char";
+            span.textContent = letter;
+            word.appendChild(span);
+            titleChars.push(span);
+          });
         });
-        brandTitle.addEventListener("pointerleave", () => {
+
+        const setTitleGlow = (event) => {
+          brandTitle.classList.add("is-title-hover");
+          titleChars.forEach((char) => {
+            const rect = char.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const radius = Math.max(42, Math.min(96, rect.height * 0.82));
+            const distance = Math.hypot(event.clientX - centerX, event.clientY - centerY);
+            const glow = Math.pow(Math.max(0, 1 - distance / radius), 1.55);
+            const stroke = strokeBase.map((channel, index) =>
+              Math.round(channel + (strokeGlow[index] - channel) * glow)
+            );
+
+            char.style.setProperty("--char-glow", glow.toFixed(3));
+            char.style.setProperty("--char-stroke-color", `rgba(${stroke.join(", ")}, ${0.92 + glow * 0.06})`);
+          });
+        };
+
+        const clearTitleGlow = () => {
           brandTitle.classList.remove("is-title-hover");
+          titleChars.forEach((char) => {
+            char.style.setProperty("--char-glow", "0");
+            char.style.setProperty("--char-stroke-color", "rgba(16, 23, 25, 0.92)");
+          });
+        };
+
+        brandTitle.addEventListener("pointermove", setTitleGlow);
+        brandTitle.addEventListener("pointerleave", () => {
+          clearTitleGlow();
         });
       }
 
