@@ -494,8 +494,9 @@
       .support-toggle {
         display: inline-flex;
         align-items: center;
+        gap: 0.56rem;
         height: 2.78rem;
-        padding: 0 1.18rem;
+        padding: 0 1.02rem 0 0.74rem;
         border: 1px solid rgba(16, 23, 25, 0.12);
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.84);
@@ -508,12 +509,21 @@
         font-size: 0.82rem;
         font-weight: 850;
         letter-spacing: 0;
+        text-decoration: none;
         backdrop-filter: blur(16px);
         transition:
           border-color 0.28s ease,
           box-shadow 0.28s ease,
           color 0.28s ease,
           transform 0.28s ease;
+      }
+
+      .support-toggle:link,
+      .support-toggle:visited,
+      .support-toggle:hover,
+      .support-toggle:focus-visible,
+      .support-toggle:active {
+        text-decoration: none;
       }
 
       .support-toggle:hover,
@@ -530,6 +540,33 @@
       .support-toggle:focus-visible {
         outline: 3px solid rgba(0, 167, 181, 0.26);
         outline-offset: 4px;
+      }
+
+      .support-toggle span {
+        text-decoration: none;
+      }
+
+      .support-icon {
+        display: inline-grid;
+        width: 1.66rem;
+        height: 1.66rem;
+        place-items: center;
+        flex: 0 0 auto;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--cyan), var(--green));
+        color: #fff;
+        box-shadow: 0 8px 18px rgba(0, 167, 181, 0.2);
+      }
+
+      .support-icon svg {
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
       }
 
       body.apps-open .support-widget {
@@ -775,8 +812,18 @@
 
         .support-toggle {
           height: 2.54rem;
-          padding: 0 1.08rem;
+          padding: 0 0.92rem 0 0.62rem;
           font-size: 0.76rem;
+        }
+
+        .support-icon {
+          width: 1.48rem;
+          height: 1.48rem;
+        }
+
+        .support-icon svg {
+          width: 0.9rem;
+          height: 0.9rem;
         }
 
         body.apps-open .support-widget {
@@ -1063,6 +1110,14 @@
         rel="noopener noreferrer"
         aria-label="Open Elviont Technologies support on WhatsApp"
       >
+        <span class="support-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M4 13a8 8 0 0 1 16 0" />
+            <path d="M5 13v3a2 2 0 0 0 2 2h1v-7H7a2 2 0 0 0-2 2Z" />
+            <path d="M19 13v3a2 2 0 0 1-2 2h-1v-7h1a2 2 0 0 1 2 2Z" />
+            <path d="M16 18c0 2-1.5 3-4 3" />
+          </svg>
+        </span>
         <span>Support</span>
       </a>
     </div>
