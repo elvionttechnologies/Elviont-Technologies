@@ -258,9 +258,10 @@
         bottom: max(1.25rem, 4vw);
         z-index: 3;
         display: grid;
-        width: 190px;
-        gap: 0.45rem;
+        width: 176px;
+        gap: 0.58rem;
         opacity: 0;
+        filter: drop-shadow(0 8px 20px rgba(0, 167, 181, 0.08));
         transition:
           bottom 0.75s cubic-bezier(0.16, 1, 0.3, 1),
           width 0.75s cubic-bezier(0.16, 1, 0.3, 1),
@@ -270,28 +271,42 @@
 
       .signal-strip span {
         display: block;
-        height: 4px;
+        height: 2px;
         overflow: hidden;
         border-radius: 999px;
-        background: rgba(16, 23, 25, 0.08);
+        background: linear-gradient(90deg, transparent, rgba(16, 23, 25, 0.12), transparent);
+      }
+
+      .signal-strip span:nth-child(1) {
+        width: 100%;
+      }
+
+      .signal-strip span:nth-child(2) {
+        width: 76%;
+        margin-left: 24%;
+      }
+
+      .signal-strip span:nth-child(3) {
+        width: 62%;
+        margin-left: 9%;
       }
 
       .signal-strip span::after {
         display: block;
-        width: 46%;
+        width: 34%;
         height: 100%;
         content: "";
         border-radius: inherit;
-        background: linear-gradient(90deg, var(--cyan), var(--green), var(--red));
-        animation: signal-load 1.65s ease-in-out infinite;
+        background: linear-gradient(90deg, transparent, var(--cyan), var(--green), var(--red), transparent);
+        animation: signal-load 6.4s cubic-bezier(0.45, 0, 0.2, 1) infinite;
       }
 
       .signal-strip span:nth-child(2)::after {
-        animation-delay: -0.45s;
+        animation-delay: -1.65s;
       }
 
       .signal-strip span:nth-child(3)::after {
-        animation-delay: -0.9s;
+        animation-delay: -3.1s;
       }
 
       .apps-panel {
@@ -622,13 +637,19 @@
       }
 
       @keyframes signal-load {
-        0%,
-        100% {
-          transform: translateX(-45%);
+        0% {
+          opacity: 0;
+          transform: translateX(-80%) scaleX(0.72);
         }
 
         50% {
-          transform: translateX(145%);
+          opacity: 0.95;
+          transform: translateX(145%) scaleX(1);
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateX(260%) scaleX(0.72);
         }
       }
 
