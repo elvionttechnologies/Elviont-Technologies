@@ -257,56 +257,127 @@
         right: max(1.25rem, 5vw);
         bottom: max(1.25rem, 4vw);
         z-index: 3;
-        display: grid;
-        width: 176px;
-        gap: 0.58rem;
+        display: block;
+        width: 156px;
+        height: 96px;
         opacity: 0;
-        filter: drop-shadow(0 8px 20px rgba(0, 167, 181, 0.08));
+        filter: drop-shadow(0 12px 24px rgba(0, 167, 181, 0.08));
         transition:
           bottom 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+          height 0.75s cubic-bezier(0.16, 1, 0.3, 1),
           width 0.75s cubic-bezier(0.16, 1, 0.3, 1),
           opacity 0.35s ease;
         animation: text-up 0.8s ease forwards 0.8s;
       }
 
-      .signal-strip span {
-        display: block;
-        height: 2px;
-        overflow: hidden;
+      .signal-strip::before {
+        position: absolute;
+        right: 7px;
+        bottom: 8px;
+        width: 68px;
+        height: 54px;
+        content: "";
+        border-right: 1px solid rgba(0, 167, 181, 0.2);
+        border-bottom: 1px solid rgba(223, 79, 69, 0.16);
+        border-radius: 0 0 26px 0;
+        opacity: 0.65;
+        transform: skew(-14deg);
+      }
+
+      .signal-strip::after {
+        position: absolute;
+        right: 4px;
+        bottom: 5px;
+        width: 6px;
+        height: 6px;
+        content: "";
+        border: 1px solid rgba(57, 179, 110, 0.62);
         border-radius: 999px;
-        background: linear-gradient(90deg, transparent, rgba(16, 23, 25, 0.12), transparent);
+        background: #fff;
+        box-shadow: 0 0 16px rgba(57, 179, 110, 0.34);
+        animation: signal-node 5.8s ease-in-out infinite;
+      }
+
+      .signal-strip span {
+        position: absolute;
+        display: block;
+        height: 1.5px;
+        overflow: visible;
+        border-radius: 999px;
+        background: linear-gradient(90deg, transparent, rgba(16, 23, 25, 0.1), rgba(0, 167, 181, 0.18), transparent);
+        transform-origin: 100% 50%;
       }
 
       .signal-strip span:nth-child(1) {
-        width: 100%;
+        right: 12px;
+        bottom: 64px;
+        width: 118px;
+        transform: rotate(-8deg);
       }
 
       .signal-strip span:nth-child(2) {
-        width: 76%;
-        margin-left: 24%;
+        right: 0;
+        bottom: 42px;
+        width: 92px;
+        background: linear-gradient(90deg, transparent, rgba(16, 23, 25, 0.1), rgba(57, 179, 110, 0.2), transparent);
+        transform: rotate(-18deg);
       }
 
       .signal-strip span:nth-child(3) {
-        width: 62%;
-        margin-left: 9%;
+        right: 48px;
+        bottom: 20px;
+        width: 74px;
+        background: linear-gradient(90deg, transparent, rgba(16, 23, 25, 0.08), rgba(223, 79, 69, 0.16), transparent);
+        transform: rotate(10deg);
+      }
+
+      .signal-strip span::before {
+        position: absolute;
+        top: 50%;
+        right: -2px;
+        width: 4px;
+        height: 4px;
+        content: "";
+        border: 1px solid rgba(0, 167, 181, 0.5);
+        border-radius: 999px;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 167, 181, 0.22);
+        transform: translateY(-50%);
+      }
+
+      .signal-strip span:nth-child(2)::before {
+        border-color: rgba(57, 179, 110, 0.5);
+        box-shadow: 0 0 10px rgba(57, 179, 110, 0.22);
+      }
+
+      .signal-strip span:nth-child(3)::before {
+        border-color: rgba(223, 79, 69, 0.46);
+        box-shadow: 0 0 10px rgba(223, 79, 69, 0.18);
       }
 
       .signal-strip span::after {
+        position: absolute;
+        top: 50%;
+        left: 0;
         display: block;
-        width: 34%;
-        height: 100%;
+        width: 24px;
+        height: 2px;
         content: "";
         border-radius: inherit;
-        background: linear-gradient(90deg, transparent, var(--cyan), var(--green), var(--red), transparent);
-        animation: signal-load 6.4s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+        background: linear-gradient(90deg, transparent, var(--cyan), rgba(255, 255, 255, 0.92), transparent);
+        animation: signal-load 7.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+        transform: translate(-40%, -50%) scaleX(0.6);
+        will-change: opacity, transform;
       }
 
       .signal-strip span:nth-child(2)::after {
-        animation-delay: -1.65s;
+        background: linear-gradient(90deg, transparent, var(--green), rgba(255, 255, 255, 0.92), transparent);
+        animation-delay: -2s;
       }
 
       .signal-strip span:nth-child(3)::after {
-        animation-delay: -3.1s;
+        background: linear-gradient(90deg, transparent, var(--red), rgba(255, 255, 255, 0.92), transparent);
+        animation-delay: -4.3s;
       }
 
       .apps-panel {
@@ -329,7 +400,8 @@
 
       body.apps-open .signal-strip {
         bottom: clamp(13.5rem, 30vh, 17rem);
-        width: 150px;
+        width: 132px;
+        height: 82px;
         opacity: 1;
       }
 
@@ -639,17 +711,34 @@
       @keyframes signal-load {
         0% {
           opacity: 0;
-          transform: translateX(-80%) scaleX(0.72);
+          transform: translate(-45%, -50%) scaleX(0.58);
         }
 
-        50% {
-          opacity: 0.95;
-          transform: translateX(145%) scaleX(1);
+        18%,
+        56% {
+          opacity: 0.9;
+        }
+
+        62% {
+          opacity: 0.65;
         }
 
         100% {
           opacity: 0;
-          transform: translateX(260%) scaleX(0.72);
+          transform: translate(480%, -50%) scaleX(0.82);
+        }
+      }
+
+      @keyframes signal-node {
+        0%,
+        100% {
+          opacity: 0.58;
+          transform: scale(0.92);
+        }
+
+        50% {
+          opacity: 1;
+          transform: scale(1.16);
         }
       }
 
@@ -728,12 +817,14 @@
           right: max(0.85rem, env(safe-area-inset-right));
           bottom: max(0.85rem, env(safe-area-inset-bottom));
           width: 124px;
+          height: 78px;
         }
 
         body.apps-open .signal-strip {
           top: max(0.7rem, env(safe-area-inset-top));
           bottom: auto;
           width: 86px;
+          height: 58px;
           opacity: 0.72;
         }
 
@@ -1005,6 +1096,7 @@
 
         .signal-strip {
           width: 102px;
+          height: 66px;
         }
       }
 
