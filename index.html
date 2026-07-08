@@ -764,16 +764,8 @@
       }
 
       .case-visual::after {
-        position: absolute;
-        top: clamp(1rem, 2vw, 1.45rem);
-        right: clamp(1rem, 2vw, 1.45rem);
-        bottom: clamp(1rem, 2vw, 1.45rem);
-        width: 4px;
-        border-radius: 999px;
-        content: "";
-        background: linear-gradient(180deg, color-mix(in srgb, var(--accent), transparent 18%), transparent 78%);
-        opacity: 0.18;
-        pointer-events: none;
+        display: none;
+        content: none;
       }
 
       .case-card:nth-child(even) .case-visual {
@@ -1396,15 +1388,17 @@
         background: #f5f5f7;
         color: #6e6e73;
         font-size: 0.74rem;
-        font-weight: 560;
-        line-height: 1.42;
+        font-weight: 600;
+        line-height: 1.5;
         text-align: left;
-        padding: 1.25rem 1.1rem 1.45rem;
+        padding: 1.05rem 1.1rem 1.18rem;
       }
 
       .footer-inner {
         width: min(980px, 100%);
         margin: 0 auto;
+        display: grid;
+        gap: 0.42rem;
       }
 
       .footer p {
@@ -1412,52 +1406,7 @@
       }
 
       .footer-note {
-        padding-bottom: 0.95rem;
-        border-bottom: 1px solid rgba(16, 20, 24, 0.11);
-      }
-
-      .footer-directory {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.2rem;
-        padding: 0.95rem 0 1rem;
-        border-bottom: 1px solid rgba(16, 20, 24, 0.11);
-      }
-
-      .footer-directory h2 {
-        margin: 0 0 0.42rem;
-        color: #1d1d1f;
-        font-size: 0.74rem;
-        font-weight: 760;
-      }
-
-      .footer-directory a,
-      .footer-bottom a {
-        display: block;
-        width: max-content;
-        max-width: 100%;
-        color: #424245;
-        text-decoration: none;
-      }
-
-      .footer-directory a + a {
-        margin-top: 0.3rem;
-      }
-
-      .footer-directory a:hover,
-      .footer-directory a:focus-visible,
-      .footer-bottom a:hover,
-      .footer-bottom a:focus-visible {
-        text-decoration: underline;
-      }
-
-      .footer-bottom {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.55rem 1rem;
-        align-items: center;
-        justify-content: space-between;
-        padding-top: 0.95rem;
+        max-width: 74ch;
       }
 
       .support-fab {
@@ -1860,10 +1809,6 @@
           grid-template-columns: 1fr;
         }
 
-        .footer-directory {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
       }
 
       @media (max-width: 560px) {
@@ -2030,21 +1975,11 @@
         }
 
         .footer {
-          padding: 1.15rem 0 5.05rem;
+          padding: 1rem 0 1.15rem;
         }
 
         .footer-inner {
           width: min(calc(100% - 1.4rem), var(--max));
-        }
-
-        .footer-directory {
-          grid-template-columns: 1fr;
-          gap: 0.9rem;
-        }
-
-        .footer-bottom {
-          display: grid;
-          gap: 0.55rem;
         }
 
         .signal-panel {
@@ -2137,7 +2072,6 @@
             </p>
             <div class="hero-actions">
               <a class="solid-link" href="#work">Explore the apps</a>
-              <a class="ghost-link" href="https://wa.me/message/DMMUSLZGHSIQI1" target="_blank" rel="noopener">Start a conversation</a>
             </div>
           </div>
         </div>
@@ -2407,29 +2341,7 @@
         <p class="footer-note">
           Elviont Technologies is an independent iOS app studio building native products for sports intelligence, student planning, and market research.
         </p>
-        <nav class="footer-directory" aria-label="Footer navigation">
-          <div>
-            <h2>Products</h2>
-            <a href="#work">BetIntel</a>
-            <a href="#work">UniPilot</a>
-            <a href="#work">AleaLens</a>
-          </div>
-          <div>
-            <h2>Privacy</h2>
-            <a href="/betintel/privacy/">BetIntel Privacy</a>
-            <a href="/unipilot/privacy/">UniPilot Privacy</a>
-            <a href="/alealens/privacy/">AleaLens Privacy</a>
-          </div>
-          <div>
-            <h2>Support</h2>
-            <a href="https://wa.me/message/DMMUSLZGHSIQI1" target="_blank" rel="noopener">Studio Contact</a>
-            <a href="#contact">Contact Section</a>
-          </div>
-        </nav>
-        <div class="footer-bottom">
-          <p>Copyright &copy; 2026 Elviont Technologies. All rights reserved.</p>
-          <a href="#top">Back to top</a>
-        </div>
+        <p>Copyright &copy; 2026 Elviont Technologies. All rights reserved.</p>
       </div>
     </footer>
 
