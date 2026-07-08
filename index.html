@@ -1221,102 +1221,21 @@
       .footer {
         position: relative;
         z-index: 1;
-        display: grid;
+        display: flex;
         width: min(var(--max), calc(100% - 2.3rem));
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 1.25rem;
         align-items: center;
+        justify-content: center;
         margin: 0 auto;
         border-top: 1px solid rgba(16, 20, 24, 0.08);
         padding: 2.2rem 0 3.2rem;
         color: rgba(16, 20, 24, 0.68);
         font-size: 0.88rem;
+        font-weight: 760;
+        text-align: center;
       }
 
-      .footer-brandline {
-        display: flex;
-        min-width: 0;
-        align-items: center;
-        gap: 0.78rem;
-      }
-
-      .footer-dot {
-        width: 0.62rem;
-        height: 0.62rem;
-        flex: 0 0 auto;
-        border-radius: 999px;
-        background: linear-gradient(135deg, var(--teal), var(--violet) 58%, var(--coral));
-        box-shadow: 0 0 18px rgba(0, 167, 181, 0.24);
-      }
-
-      .footer strong {
-        display: block;
-        color: rgba(16, 20, 24, 0.9);
-        font-size: 0.95rem;
-      }
-
-      .footer span {
-        display: block;
-      }
-
-      .footer-directory {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: end;
-        gap: 0.72rem;
-      }
-
-      .footer-group {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.58rem;
-        min-height: 2.42rem;
-        padding: 0.28rem 0.62rem 0.28rem 0.78rem;
-        border: 1px solid rgba(16, 20, 24, 0.09);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.78);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
-      }
-
-      .footer-group > span {
-        color: rgba(16, 20, 24, 0.46);
-        font-size: 0.68rem;
-        font-weight: 950;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .footer-directory a {
-        text-decoration: none;
-      }
-
-      .footer-group a {
-        color: rgba(16, 20, 24, 0.74);
-        font-weight: 840;
-      }
-
-      .footer-directory a:hover,
-      .footer-directory a:focus-visible {
-        color: var(--ink);
-      }
-
-      .footer-contact-link {
-        display: inline-flex;
-        min-height: 2.42rem;
-        align-items: center;
-        border-radius: 999px;
-        background: var(--ink);
-        box-shadow: 0 14px 32px rgba(16, 20, 24, 0.16);
-        color: #fff;
-        font-weight: 880;
-        padding: 0 0.92rem;
-      }
-
-      .footer-contact-link:hover,
-      .footer-contact-link:focus-visible {
-        color: #fff;
-        transform: translateY(-1px);
+      .footer p {
+        margin: 0;
       }
 
       .support-fab {
@@ -1604,13 +1523,6 @@
           max-width: 14ch;
         }
 
-        .footer-directory {
-          justify-content: start;
-        }
-
-        .footer-group {
-          border-radius: 1.2rem;
-        }
       }
 
       @media (max-width: 560px) {
@@ -1712,30 +1624,6 @@
 
         .signal-list li {
           min-height: 2.35rem;
-        }
-
-        .footer {
-          align-items: start;
-        }
-
-        .footer-brandline {
-          align-items: flex-start;
-        }
-
-        .footer-directory,
-        .footer-group {
-          width: 100%;
-        }
-
-        .footer-group {
-          justify-content: flex-start;
-          flex-wrap: wrap;
-          padding: 0.72rem 0.78rem;
-        }
-
-        .footer-contact-link {
-          width: 100%;
-          justify-content: center;
         }
 
         .capability {
@@ -2101,22 +1989,7 @@
     </main>
 
     <footer class="footer">
-      <div class="footer-brandline">
-        <span class="footer-dot" aria-hidden="true"></span>
-        <div>
-          <strong>Elviont Technologies</strong>
-          <span>Native iOS products, privacy resources, and studio contact.</span>
-        </div>
-      </div>
-      <nav class="footer-directory" aria-label="Footer">
-        <div class="footer-group" aria-label="Privacy pages">
-          <span>Privacy</span>
-          <a href="/betintel/privacy/">BetIntel</a>
-          <a href="/unipilot/privacy/">UniPilot</a>
-          <a href="/alealens/privacy/">AleaLens</a>
-        </div>
-        <a class="footer-contact-link" href="https://wa.me/message/DMMUSLZGHSIQI1" target="_blank" rel="noopener">Studio contact</a>
-      </nav>
+      <p>Copyright &copy; 2026 Elviont Technologies. All rights reserved.</p>
     </footer>
 
     <a class="support-fab" href="https://wa.me/message/DMMUSLZGHSIQI1" target="_blank" rel="noopener" aria-label="Open Elviont Technologies support on WhatsApp">
