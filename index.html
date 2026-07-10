@@ -313,33 +313,11 @@
       }
 
       .glow-title {
-        --shine-x: 50%;
-        --shine-y: 50%;
-        --title-hot: 0;
         position: relative;
         isolation: isolate;
         cursor: default;
-      }
-
-      .glow-title::after {
-        position: absolute;
-        inset: -0.14em -0.08em;
-        z-index: -1;
-        pointer-events: none;
-        content: "";
-        background:
-          radial-gradient(
-            circle at var(--shine-x) var(--shine-y),
-            rgba(0, 167, 181, 0.13),
-            rgba(27, 116, 255, 0.075) 26%,
-            transparent 52%
-          );
-        filter: blur(16px);
-        opacity: var(--title-hot);
-        transform: scale(calc(1 + var(--title-hot) * 0.018));
-        transition:
-          opacity 0.24s ease,
-          transform 0.24s ease;
+        user-select: none;
+        -webkit-user-select: none;
       }
 
       .glow-title .word {
@@ -352,10 +330,11 @@
         --lean: 0;
         --lift: 0;
         display: inline-block;
+        background: transparent;
         color: color-mix(in srgb, var(--ink), var(--cyan) calc(var(--hot) * 58%));
         text-shadow:
-          calc(var(--lean) * -5px) calc(var(--lift) * 3px) calc(var(--hot) * 12px) rgba(0, 167, 181, 0.34),
-          0 0 calc(var(--hot) * 32px) rgba(27, 116, 255, 0.16);
+          calc(var(--lean) * -5px) calc(var(--lift) * 3px) calc(var(--hot) * 10px) rgba(0, 167, 181, 0.38),
+          0 0 calc(var(--hot) * 24px) rgba(27, 116, 255, 0.12);
         transform:
           translate3d(calc(var(--lean) * 0.035em), calc(var(--lift) * -0.08em), 0)
           scale(calc(1 + var(--hot) * 0.018));
@@ -2289,7 +2268,7 @@
               </p>
               <div class="hero-actions">
                 <a class="solid-link" href="https://wa.me/message/DMMUSLZGHSIQI1" target="_blank" rel="noopener">Message on WhatsApp</a>
-                <a class="ghost-link" href="#work">See apps</a>
+                <a class="ghost-link" href="mailto:info@elviont.nl?subject=Elviont%20Technologies%20inquiry" aria-label="Email Elviont Technologies">Email</a>
               </div>
             </div>
             <div class="contact-routes" aria-label="Contact routes">
@@ -2357,9 +2336,6 @@
       const chars = [...document.querySelectorAll(".glow-title .char")];
       const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
       const coolDown = () => {
-        if (glowTitle) {
-          glowTitle.style.setProperty("--title-hot", "0");
-        }
         chars.forEach((char) => {
           char.style.setProperty("--hot", "0");
           char.style.setProperty("--lean", "0");
@@ -2369,11 +2345,6 @@
 
       if (glowTitle) {
         glowTitle.addEventListener("pointermove", (event) => {
-          const titleBox = glowTitle.getBoundingClientRect();
-          glowTitle.style.setProperty("--shine-x", `${event.clientX - titleBox.left}px`);
-          glowTitle.style.setProperty("--shine-y", `${event.clientY - titleBox.top}px`);
-          glowTitle.style.setProperty("--title-hot", "1");
-
           chars.forEach((char) => {
             const box = char.getBoundingClientRect();
             const centerX = box.left + box.width / 2;
